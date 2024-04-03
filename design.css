@@ -1,0 +1,52 @@
+/* Updated CSS with added colors */
+
+/* Styling for file input */
+#csvFile {
+    display: block;
+    margin: 20px auto;
+  }
+  
+  /* Styling for the table */
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  h2 {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light gray background */
+  }
+  
+  /* Styling for regression plot and equation */
+  .regression-plot {
+    width: 100%;
+    height: 200px; /* Increased height for better visibility */
+    margin: 20px auto;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Adding border-radius for a softer look */
+  }
+  
+  .regression-equation {
+    margin-top: 20px;
+    text-align: center;
+    color: #333; /* Dark text color */
+  }
+  
+  /* Additional styling for regression equation details */
+  .regression-equation p {
+    margin: 5px;
+    color: #666; /* Medium dark text color */
+  }
+  
