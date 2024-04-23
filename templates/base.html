@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boxicons -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <!-- Optional Headers-->
+    {% block headers %}{% endblock %}
+
+    <title>HauVisionary | {% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+      <a href="" class="brand">
+        <i class="bx bxs-smile"></i>
+        <span class="text">Numerical</span>
+      </a>
+      <ul class="side-menu top">
+        <li class="homeBar">
+          <a href="{% url 'home' %}">
+            <i class="bx bxs-doughnut-chart"></i>
+            <span class="button">Multilinear Regression</span>
+          </a>
+        </li>
+        <li class="aboutBar">
+          <a href="{% url 'about' %}">
+            <i class="bx bxs-shopping-bag-alt"></i>
+            <span class="text">About</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="side-menu"></ul>
+    </section>
+    <!-- CONTENT -->
+    <section id="content">
+        
+      <!-- MAIN -->
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+      <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script>
+        /* Change active sidebar based on current page */
+        const currentLocation = window.location.href;
+        const homeBar = document.querySelector('.homeBar');
+        const aboutBar = document.querySelector('.aboutBar');
+        
+        if (currentLocation.includes('about')) {
+            aboutBar.classList.toggle('active');
+        } else {
+            homeBar.classList.toggle('active');
+        }
+    </script>        
+    <script src="{% static 'js/script.js' %}"/>
+  </body>
+</html>

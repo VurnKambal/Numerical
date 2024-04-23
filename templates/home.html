@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %} Multilinear Regression {% endblock title%}
+{% block head %} <link rel="stylesheet" href="{% static 'css/PRstyles.css' %}"> {% endblock %}
+
+
+{% block content %}
+
+	<h2>Multiple Linear Regression</h2>
+
+	<form id="csvFile" enctype="multipart/form-data" id="csvFile" method="post">
+        {% csrf_token %}
+        {{ form.path }}
+        {{ form.as_p }}
+		<button type="submit">Submit</button>
+    </form>
+	<br><br>
+	
+	<div class="dataframe">
+		<table id="table-data">
+			<thead>
+				<tr>
+					{% for column in df.columns %}
+						<th>{{ column }}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<!--If submit button pressed-->
+			<div class="datarows">
+			{% if datasetUploaded %}
+				{% include 'table.html' %}
+			{% endif %}
+			</div>
+		</table>
+	</div>
+
+	
+		<!-- Display regression line equation and plot -->
+		<div class="regression-plot">
+			<!-- Regression plot will be inserted here by JavaScript -->
+			</div>
+			<div class="regression-equation">
+			<p>Equation: Y = <span id="regression-equation-coefficients"></span></p>
+			<p>Predicted Future Value: <span id="predicted-future-value"></span></p>
+			<p>Standard Error of the Estimate: <span id="standard-error-of-the-estimate"></span></p>
+			<p>Correlation Coefficient: <span id="correlation-coefficient"></span> (<span id="correlation-description"></span>)</p>
+		</div>	
+
+
+
+	
+{% endblock %}
